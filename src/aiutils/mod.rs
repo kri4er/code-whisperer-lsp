@@ -9,30 +9,30 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ProgrammingLanguage {
-    language_name: String,
+    pub language_name: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FileContext {
-    left_file_content: String,
-    right_file_content: String,
-    filename: String,
-    programming_language: ProgrammingLanguage,
+    pub left_file_content: String,
+    pub right_file_content: String,
+    pub filename: String,
+    pub programming_language: ProgrammingLanguage,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RecommendationContext {
-    file_context: FileContext,
-    max_results: i32,
+    pub file_context: FileContext,
+    pub max_results: i32,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Recommendation {
-    content: String,
-    references: Vec<String>,
+    pub content: String,
+    pub references: Vec<String>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize)]
@@ -45,6 +45,7 @@ pub trait RecommendationProvider {
     fn recomendations(&self, recomendation_context: RecommendationContext) -> Vec<Recommendation>;
 }
 
+#[derive(Debug)]
 pub struct AWSCodeWhispererCliProvider {}
 
 impl RecommendationProvider for AWSCodeWhispererCliProvider {
@@ -75,7 +76,7 @@ mod test_aiutils {
         RecommendationProvider,
     };
 
-    #[ignore]//Ignored since it is actually does a network call
+    #[ignore] //Ignored since it is actually does a network call
     #[tokio::test]
     async fn test_generate_reccomendations() {
         let cli_rec_provider = AWSCodeWhispererCliProvider {};

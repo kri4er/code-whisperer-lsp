@@ -1,0 +1,11 @@
+{
+    "fileContext": {
+        "leftFileContent": "fn main() { int n = 10;",
+        "rightFileContent": "}",
+        "filename": "main.rs",
+        "programmingLanguage": {
+            "languageName": "rust"
+        }
+    },
+    "maxResults": 0
+}

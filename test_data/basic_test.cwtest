@@ -1,2 +1,23 @@
-wow, this is a language server that can do some real magic!
-adding stuff
+
+fn generate_random_string() -> String {
+        let mut rng = rand::thread_rng();
+    let random_string: String = rand::thread_rng()
+        .sample_iter(&rand::distributions::Alphanumeric)
+        .take(10)
+        .map(char::from)
+        .collect();
+    return random_string;
+}
+
+fn generate_palindrome(alphabet: Vec<String>) -> String {
+
+}
+
+
+
+fn main() {
+    println("Hello world!");
+    let n = 5; 
+        let mut power_n = 1;
+    let power_n = power_n * 2;
+}
